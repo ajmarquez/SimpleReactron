@@ -1,14 +1,18 @@
 require 'spec_helper'
+require 'rubygems'
+require 'bundler/setup'
 
 describe ReactionTracker do
 
   before :example do
     @reaction_list = ReactionTracker.new ['imp','+1']
+
   end
 
   describe "#new" do
 
     it "Creates an array of reactions" do
+      puts ENV['REACTIONS']
       expect(@reaction_list.array).to be_an Array
     end
 
@@ -33,7 +37,5 @@ describe ReactionTracker do
       end
     end
   end
-
-
 
 end
