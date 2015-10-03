@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'rubygems'
-require 'bundler/setup'
 
 describe ReactionTracker do
 
@@ -12,7 +10,6 @@ describe ReactionTracker do
   describe "#new" do
 
     it "Creates an array of reactions" do
-      puts ENV['REACTIONS']
       expect(@reaction_list.array).to be_an Array
     end
 

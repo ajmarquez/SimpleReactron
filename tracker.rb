@@ -1,4 +1,3 @@
-
 class ReactionTracker
 
     attr_accessor :array
