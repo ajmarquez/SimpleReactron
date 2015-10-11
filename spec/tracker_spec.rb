@@ -7,7 +7,7 @@ describe ReactionTracker do
 
   end
 
-  describe "#new" do
+  xdescribe "#new" do
 
     it "Creates an array of reactions" do
       expect(@reaction_list.array).to be_an Array
@@ -18,7 +18,7 @@ describe ReactionTracker do
     end
   end
 
-  describe ".matched" do
+  xdescribe ".matched" do
 
     describe "Takes the ReactionTracker array and compares it with another" do
 
