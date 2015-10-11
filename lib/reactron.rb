@@ -17,7 +17,6 @@ class Reactron
   end
 
   def start
-
     Slack.configure do |config|
       config.token = @token
       fail 'Missing ENV[SLACK_API_TOKEN]!' unless config.token
@@ -25,11 +24,7 @@ class Reactron
 
     client = Slack::RealTime::Client.new
     main_array = @array
-
-    if data['text']
-        main_channel = data['channel']
-      end
-    end
+    main_channel = data['channel'] if data['text']
 
 
   end

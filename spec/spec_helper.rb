@@ -1,3 +1,2 @@
-require_relative '../tracker'
-require_relative '../reactron'
+Dir["./lib/*.rb"].each { |file| require file }
 require 'slack-ruby-client'
