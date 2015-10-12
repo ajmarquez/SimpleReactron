@@ -41,7 +41,7 @@ class Reactron
 
         r_reactions.each {|item| @dummy.push("#{item['name']}")}
 
-        puts "THEY MATCH!" if Reactron.compare
+        puts "THEY MATCH!" if compare
         #Reactron.compare ? puts "THEY MATCH!" : puts "No match."
 
       end
