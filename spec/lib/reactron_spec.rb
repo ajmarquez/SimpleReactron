@@ -15,7 +15,7 @@ describe Reactron do
 
   end
 
-  describe "track_reaction" do
+  describe ".track_reaction" do
 
     it "Takes an array of reactions" do
       @reactron.track_reaction(['+1','imp'])
@@ -24,23 +24,36 @@ describe Reactron do
 
   end
 
-  xdescribe "add_service" do
+  describe ".compare" do
+
+    it "Notifies if there's a match" do
+      @reactron.track_reaction(['+1','imp'])
+      @reactron.dummy = ['imp','+1']
+      expect(@reactron.compare).to be_truthy
+
+    end
+
+  end
+
+  xdescribe ".add_service" do
 
     it "Takes an URL to execute a service"
 
   end
 
-  describe "start" do
+  describe ".start" do
 
-    it "Notifies if auth works" do
+    it "Notifies if token available" do
 
-      expect(config.token).to be_truthy
+      expect(@reactron.token).to be_truthy
 
     end
 
-    it "Notifies if an error occurs"
+    it "Notifies if token not available" do
+      @reactronNil = Reactron.new
+      expect(@reactronNil.token.length > 0).to be_falsey
 
-    it "Notifies if there's a match"
+    end
 
   end
 
