@@ -1,6 +1,9 @@
+require 'rubygems'
+require 'bundler/setup'
 require 'slack-ruby-client'
 
 class Reactron
+
 
   attr_reader :token, :array, :url
   attr_writer :dummy
