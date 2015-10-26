@@ -18,8 +18,10 @@ class Reactron
     @array = array
   end
 
-  def compare
-    @array.sort == @dummy.sort
+  def is_tracked?
+    @array.each do |x|
+      x == @dummy.last
+    end
   end
 
   def add_service(url)
@@ -44,14 +46,13 @@ class Reactron
 
         r_reactions.each {|item| @dummy.push("#{item['name']}")}
 
-        puts "THEY MATCH!" if compare
+        puts "THEY MATCH!" if is_tracked?
         #Reactron.compare ? puts "THEY MATCH!" : puts "No match."
 
       end
     end
-
-
-
   end
+
+  #private :is_tracked?
 
 end
