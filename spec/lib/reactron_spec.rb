@@ -3,21 +3,22 @@ require 'spec_helper'
 
 describe Reactron do
 
-  before :example do
-    @reactron = Reactron.new('XXXXXXX')
-  end
+  #before :example do
+  #  @reactron = Reactron.new('XXXXXXX')
+  #end
 
   describe "#New" do
 
-    it "Takes an Slack Token" do
-      expect(@reactron.token).to eql('XXXXXXX')
+    it "Requires a Slack token to authorize access to your team" do
+      expect(Reactron.new('XXXXXXX')).to be_truthy
     end
 
   end
 
   describe ".track_reaction" do
 
-    it "Takes an array of reactions" do
+    it "inserts the reactions to be tracked to an Array" do
+      @reactron = Reactron.new
       @reactron.track_reaction(['+1','imp'])
       expect(@reactron.array).to be_an Array
     end
@@ -26,7 +27,8 @@ describe Reactron do
 
   describe ".is_tracked" do
 
-    it "Notifies if there's a matched reaction" do
+    it "shows if the last posted reaction is included inside the tracked reactions array " do
+      @reactron = Reactron.new
       @reactron.track_reaction(['+1','imp','smile'])
       @reactron.dummy = ['+1']
       expect(@reactron.is_tracked?).to be_truthy
@@ -37,19 +39,19 @@ describe Reactron do
 
   describe ".add_service" do
 
-    it "Takes an URL to execute a service"
+    it "takes an URL for the service to be called when a tracked reaction is posted"
 
   end
 
   describe ".start" do
 
-    it "Notifies if token available" do
-
+    it "displays TRUE if a token is available" do
+      @reactron = Reactron.new('XXXX')
       expect(@reactron.token).to be_truthy
 
     end
 
-    it "Notifies if token not available" do
+    it "displays TRUE if a token is NOT available" do
       @reactronNil = Reactron.new
       expect(@reactronNil.token.length > 0).to be_falsey
 
